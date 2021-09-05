@@ -36,13 +36,20 @@ int LinkedList<T>::size() const
 template <typename T>
 bool LinkedList<T>::search(T value) const
 {
+	//get front of list pointer
 	Node<T>* temp = m_front;
+    //return this at end of operations
 	bool isFound = false;
-
-	/** TODO
-		Fix this method
-	*/
-
+    //itterate through list, if found goto end of func
+    while (temp != nullptr) {
+        if (temp->getValue() == value) {
+            isFound = true;
+            goto END_FUNC;
+        } else {
+            temp = temp->getNext();
+        }
+    }
+    END_FUNC:
 	return(isFound);
 }
 
